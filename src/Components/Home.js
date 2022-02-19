@@ -1,8 +1,13 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 function Home(props) {
     let [page, setPage] = useState(0);
-    let [products, setProducts] = useState(props.data.slice(0, 10));
+    let [products, setProducts] = useState([]);
+
+    useEffect(()=>{
+        setProducts(props.data.slice(0, 10));
+        setPage(0);
+    },[props]);
 
     let handlePrevious = () => {
         let pageNo = page - 1;
@@ -27,6 +32,8 @@ function Home(props) {
                                 <img src={item.image} className="card-img-top" style={{"height":"200px", "width":"auto"}} alt="..." />
                                     <div className='card-body'>
                                         <h6 className='card-title'>{item.title}</h6>
+                                        <p className='my-0'>Rating: {item.rating}</p>
+                                        <h5 className='font-weight-normal text-primary'>{item.finalPrice} <small className='text-muted'><del> {item.originalPrice}</del></small></h5>
                                     </div>
                             </div>
                         </div>
