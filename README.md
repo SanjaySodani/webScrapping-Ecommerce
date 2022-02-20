@@ -1,1 +1,1 @@
-## There 2 branches separating frontend and backend
+## There are 2 branches separating frontend and backend
