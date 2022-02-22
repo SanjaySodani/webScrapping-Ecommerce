@@ -31,7 +31,7 @@ function Home(props) {
                             <div className='card'>
                                 <img src={item.image} className="card-img-top" style={{"height":"200px", "width":"auto"}} alt="..." />
                                     <div className='card-body'>
-                                        <h6 className='card-title'>{item.title}</h6>
+                                        <h6 className='card-title'>{item.title.substring(0, 45)}{item.title.length > 46 ? "..." : "" }</h6>
                                         <p className='my-0'>Rating: {item.rating}</p>
                                         <h5 className='font-weight-normal text-primary'>{item.finalPrice} <small className='text-muted'><del> {item.originalPrice}</del></small></h5>
                                     </div>
